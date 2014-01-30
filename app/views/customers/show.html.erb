@@ -1,0 +1,62 @@
+
+<h3><span class = "customer"> </span></br>
+
+<div class="span6 offset6">
+  <%=link_to "Edit", edit_customer_path, class: "btn btn-primary" %>
+  <%=link_to "Delete", customer_path, class: "btn btn-danger",
+    method: :delete, confirm: "Are you sure delete" %>
+</div>
+
+<div><%= "#{@customer.first_name} #{@customer.last_name}"%></div></h3>
+<h7><div><%= "Age : #{@customer.dob}"%></div></br>
+<%= "#{@customer.address}" %></br>
+<%= "#{@customer.sex}" %> </br>
+<hr>
+	<div class="row">
+	<div class = "span6">
+	<h5><span class = "customer"custom status</span></h5>
+
+	<div class="row">
+	<div class = "span6">Status</div>
+	<span class = "label label-failure"> pending </span>
+	</div>
+	</div>
+	</div>
+</hr>
+
+<hr>
+	<div class="row">
+	<div class = "span6">
+	<h5><span class = "customer"> Customer Details</span></h5>
+
+	 <div class="row">
+   <div class="span3">Date of birth</div>
+   <div class="span3">  <%= @customer.dob %> </div>
+   </div>
+
+   <div class="row">
+   <div class="span3">Gender</div>
+   <div class="span3"> <%= @customer.sex %> </div>
+   </div>
+   </div>
+ </hr>
+
+   <div class="span6">
+   <h5><span class="customer">ID Details</span></h5>
+   <div class="row">
+
+   <div class="span3">PAN</div>
+   <div class="span3"> <%= @customer.pan%> </div>
+   </div>
+   </div>
+   <br></br>
+	</div>
+	
+	<h5><%= link_to"Back", customers_path, class: "btn btn-primary", title: "Back to All Customer Info", data:{tooltip:true} %></h5>
+
+	<%= link_to"Edit", edit_customer_path, class: "btn btn-primary", title:"Edit Customer Info", data: {tooltip:true} %>
+
+	<%= link_to "Delete",customer_path,class: "btn btn-danger",
+      method: :delete, confirm: "Are You Sure?" %>
+
+	<div class = "row">

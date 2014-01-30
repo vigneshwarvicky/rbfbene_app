@@ -1,0 +1,46 @@
+<style>
+table, td, th
+{
+border:3px solid orange;
+}
+th
+{
+background-color:CadetBlue  ;
+color:white;
+
+}
+</style>
+<h2>All Customers Info </h2>
+
+<div><%= link_to "Add New Customer", new_customer_path, class: "btn btn-primary",  title: "Add Customer Info", data: {tooltip: true} %> </div> </br>
+
+<table cellpadding = "5" cellspacing ="5">
+  <tr>
+    <th>Name</th>
+    <th>Dob</th>
+    <th>Sex</th>    
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Status</th>
+    <th>Edit</th>
+    <th>Delete</th>
+   </tr>
+  <% @customers.each do |customer| %>
+    <tr>
+       <td><%= link_to "#{customer.first_name} #{customer.last_name}" , customer_path(customer)%></td>
+      <td><%= customer.dob%></td>
+      <td><%= customer.sex%></td>
+      <td><%= customer.address%></td>
+      <td><%= customer.city%></td>
+      <td><%= customer.state%></td>  
+      <td><span class="label label-failure"><%= customer.status %></span></td>    
+      
+      <td><%= link_to "Edit",edit_customer_path(customer), class: "btn btn-primary", title: "Edit Customer Info", data: {tooltip: true}  %> </td>
+
+      <td><%= link_to "Delete",customer_path(customer), class: "btn btn-danger",  title: "Delete Customer Info ", data: {tooltip: true},  method: :delete, confirm: "Are You want to delete the customer?" %></td>
+    </tr>
+  <% end %>
+</table>
+<br />
+<%= link_to image_tag("New customer.jpeg", size: "135x100", alt: "Customer") %>

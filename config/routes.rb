@@ -1,4 +1,18 @@
 RbfbeneApp::Application.routes.draw do
+  resources :customers
+
+  root to: 'customers#index'
+
+  get "customers/new"
+
+  get "customers/create"
+
+  get "customers/show"
+
+  get "customers/destroy"
+  
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
